@@ -6,7 +6,3 @@ class AppEvent
 	property :request_url	, String
 	property :response_code	, Integer
 end
-
-#another comment
-#another another comment
-
