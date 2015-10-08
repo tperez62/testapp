@@ -6,3 +6,5 @@ class AppEvent
 	property :request_url	, String
 	property :response_code	, Integer
 end
+
+#Adding a comment to this model
