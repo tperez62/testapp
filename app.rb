@@ -4,8 +4,6 @@ require 'rest-client'
 require 'logger'
 require './AppEvent'
 
-#Adding a comment to test with git
-
 DataMapper.setup :default, "sqlite3://#{Dir.pwd}/app.db"
 DataMapper.auto_upgrade!
 
@@ -24,8 +22,6 @@ Thread.new do
 		AppEvent.create(request_url:req, response_code:res.code)
 	end
 end
-
-#second comment
 
 get '/hello' do
 	logger.debug("Received Request, Sending Response")

@@ -4,8 +4,6 @@ require 'rest-client'
 require 'logger'
 require './AppEvent'
 
-#Adding a comment on this one as well
-
 DataMapper.setup :default, "sqlite3://#{Dir.pwd}/app2.db"
 DataMapper.auto_upgrade!
 
