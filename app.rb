@@ -13,7 +13,7 @@ logger = Logger.new('applog.log')
 
 Thread.new do
 	while true do
-		sleep(60)
+		sleep(30)
 		req = 'http://localhost:4567/hello'
 		logger.debug("Sending Request")
 		res = RestClient.get(req)
