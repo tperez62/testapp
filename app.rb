@@ -25,6 +25,8 @@ Thread.new do
 	end
 end
 
+#second comment
+
 get '/hello' do
 	logger.debug("Received Request, Sending Response")
 	"Hello app2"
