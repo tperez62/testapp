@@ -1,4 +1,5 @@
 namespace :db do
+	desc 'Backup all databases to a CSV'
 	task :backup => [:backupapp, :backupapp2] do
 		#Back Up App & App2 AppEvent tables
 	end
@@ -16,15 +17,20 @@ end
 
 def backup_to_csv(name)
 	csvname = "#{name}.csv"
-	CSV.open(csvname,'w') do |csv|
-		headers = ['Created At','Request Url','Response Code']
-		csv << headers
+	CSV.open(csvname, 'w') do |csv|
+		# Column headers
+		csv << [
+			'Created At', 
+			'Request Url', 
+			'Response Code'
+		]
+
 		AppEvent.all.each do |event|
-			a = []
-			a << event.created_at
-			a << event.request_url
-			a << event.response_code
-			csv << a
+			csv << [
+				event.created_at,
+				event.request_url,
+				event.response_code
+			]
 		end
 	end
 end
