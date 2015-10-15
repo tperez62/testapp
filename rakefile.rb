@@ -25,7 +25,7 @@ def backup_to_csv(name)
 			'Response Code'
 		]
 
-		AppEvent.all.each do |event|
+		AppEvent.each do |event|
 			csv << [
 				event.created_at,
 				event.request_url,
