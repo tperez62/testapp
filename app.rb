@@ -3,6 +3,9 @@ require 'sinatra'
 require 'rest-client'
 require 'logger'
 require './AppEvent'
+require 'sidekiq'
+require 'require_all'
+require_all './workers'
 
 DataMapper.setup :default, "sqlite3://#{Dir.pwd}/app.db"
 DataMapper.auto_upgrade!
@@ -26,4 +29,9 @@ end
 get '/hello' do
 	logger.debug("Received Request, Sending Response")
 	"Hello app2"
+end
+
+get '/export_tables' do
+	logger.debug("Exporting tables to CSV files")
+	BackupWorker.perform_async
 end
