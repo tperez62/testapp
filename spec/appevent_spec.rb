@@ -1,4 +1,8 @@
-require 'spec_helper'
+require 'data_mapper'
+require_relative '../AppEvent.rb'
+
+DataMapper.setup :default, "sqlite3://#{Dir.pwd}/spec/newtest.db"
+DataMapper.auto_migrate!
 
 describe "AppEvent" do
 	it "should instantiate properly" do

@@ -1,11 +1,11 @@
 require 'rack/test'
-require_relative '../app.rb'
+require_relative '../app2.rb'
 
 def app
 	Sinatra::Application
 end
 
-describe "App" do
+describe "App2" do
 	include Rack::Test::Methods
 	
 	it "should respond to hello route" do
