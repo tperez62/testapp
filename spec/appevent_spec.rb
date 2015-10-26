@@ -5,20 +5,20 @@ DataMapper.setup :default, "sqlite3://#{Dir.pwd}/spec/newtest.db"
 DataMapper.auto_migrate!
 
 describe "AppEvent" do
+
+	subject { build(:appevent) }
+	
 	it "should instantiate properly" do
-		appevent = AppEvent.new
-		expect(appevent).to be_an_instance_of AppEvent
+		expect(subject).to be_an_instance_of AppEvent
 	end
 	
 	it "should store attributes properly" do
-		appevent = build(:appevent)
-		expect(appevent.request_url).to eql 'defaulturl'
-		expect(appevent.response_code).to eql 456
+		expect(subject.request_url).to eql 'defaulturl'
+		expect(subject.response_code).to eql 456
 	end
 	
 	it "should save properly" do
-		appevent = build(:appevent)
-		res = appevent.save
+		res = subject.save
 		expect(res).to be true
 	end
 	
