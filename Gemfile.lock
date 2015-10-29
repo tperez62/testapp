@@ -94,6 +94,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     json_pure (1.8.2)
+    kgio (2.10.0)
     logger (1.2.8)
     mime-types (2.6.2)
     minitest (5.8.1)
@@ -102,6 +103,7 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    raindrops (0.15.0)
     rake (10.4.2)
     redis (3.2.1)
     redis-namespace (1.5.2)
@@ -137,6 +139,10 @@ GEM
       unf_ext
     unf_ext (0.0.7.1)
     unf_ext (0.0.7.1-x86-mingw32)
+    unicorn (4.9.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     uuidtools (2.1.5)
 
 PLATFORMS
@@ -153,6 +159,7 @@ DEPENDENCIES
   rest-client
   sidekiq
   sinatra
+  unicorn
 
 BUNDLED WITH
    1.10.6

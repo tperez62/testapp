@@ -1,0 +1,21 @@
+upstream unicorn_server {
+	server unix:/home/tony/ruby/projects/testapp/tmp/sockets/unicorn.sock
+		fail_timeout=0;
+}
+
+server {
+	listen 9494 default_server;
+	root /home/tony/ruby/projects/testapp;
+	server_name my-sinatra-app.com;
+	client_max_body_size 4G;
+	keepalive_timeout 5;
+	location / {
+		try_files $uri @app;
+	}
+	location @app {
+		proxy_set_header X-Forwarded_for $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_redirect off;
+		proxy_pass http://unicorn_server;
+	}
+}
