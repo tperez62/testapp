@@ -7,7 +7,7 @@ require './AppEvent'
 DataMapper.setup :default, "sqlite3://#{Dir.pwd}/app2.db"
 DataMapper.auto_upgrade!
 
-logger = Logger.new('app2log.log')
+logger = Logger.new('./logs/app2log.log')
 
 Thread.new do
 	while true do

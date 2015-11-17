@@ -12,7 +12,7 @@ DataMapper.auto_upgrade!
 
 set :port, 9494
 
-logger = Logger.new('applog.log')
+logger = Logger.new('./logs/applog.log')
 
 Thread.new do
 	while true do
