@@ -1,11 +1,11 @@
 upstream unicorn_server {
-	server unix:/home/tony/ruby/projects/testapp/tmp/sockets/unicorn.sock
+	server unix:/home/deploy/testapp/tmp/sockets/unicorn.sock
 		fail_timeout=0;
 }
 
 server {
 	listen 9494 default_server;
-	root /home/tony/ruby/projects/testapp;
+	root /home/deploy/testapp;
 	server_name my-sinatra-app.com;
 	client_max_body_size 4G;
 	keepalive_timeout 5;

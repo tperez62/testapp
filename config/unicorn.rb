@@ -1,4 +1,4 @@
-@dir = "/home/tony/ruby/projects/testapp/"
+@dir = "/home/deploy/testapp/"
 
 worker_processes = 2
 working_directory = @dir

@@ -16,7 +16,7 @@ logger = Logger.new('applog.log')
 
 Thread.new do
 	while true do
-		sleep(10)
+		sleep(20)
 		req = 'http://localhost:4567/hello'
 		logger.debug("Sending Request")
 		res = RestClient.get(req)
@@ -34,4 +34,8 @@ end
 get '/export_tables' do
 	logger.debug("Exporting tables to CSV files")
 	BackupWorker.perform_async
+end
+
+get '/testing' do
+	"This is a test"
 end

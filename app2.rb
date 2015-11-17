@@ -11,7 +11,7 @@ logger = Logger.new('app2log.log')
 
 Thread.new do
 	while true do
-		sleep(10)
+		sleep(20)
 		req = 'http://localhost:9494/hello'
 		logger.debug("Sending Request")
 		res = RestClient.get(req)
